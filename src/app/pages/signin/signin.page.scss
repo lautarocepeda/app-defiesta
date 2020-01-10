@@ -1,0 +1,64 @@
+
+ion-button {
+    --color: #ffffff;
+    font-weight: bold;
+}
+
+
+.ion-margin-end {
+    margin-right: 5px;
+}
+
+.ion-margin-top {
+    margin-top: 20px;
+}
+
+
+.margin {
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.margin-bottom {
+    margin-bottom: 20px;
+}
+
+.ion-margin-bottom {
+    margin-bottom: 30px;
+}
+
+.ion-margin-top {
+    margin-top: 35px;
+}
+
+
+/* Start Input */
+ion-input {
+    --color: rgb(53, 53, 53);
+}
+
+ion-item {
+    --color: #858585;
+    border: 1px solid #C9C9C9;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.invalid-form {
+    border: 2px solid red;
+}
+/* End Input */
+
+
+.passwordIcon {
+    position: relative !important;
+    top: 15px !important;
+    margin: 0 auto !important;
+}
+
+
+.error-message {
+    color: red;
+    font-size: 8px;
+    margin: 0px;
+}

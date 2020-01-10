@@ -1,0 +1,35 @@
+<ion-content class="ion-padding" fullscreen="true">
+    <ion-grid>
+        <ion-row>
+
+            <ion-col size="12">
+                <app-logo class="logo-center"></app-logo>
+            </ion-col>
+
+            <ion-col size="12">
+                <ion-img [src]="welcomeData.img"></ion-img>
+            </ion-col>
+
+            <ion-col size="12">
+                <h2 class="ion-text-center text-bold"> {{ welcomeData.title }} </h2>
+            </ion-col>
+
+            <ion-col size="12">
+                <p class="subtitle"> {{ welcomeData.subtitle }} </p>
+            </ion-col>
+
+            <ion-col size="12">
+                <ion-button size="large" expand="block" (click)="navigateTo('/signup')" class="ion-margin-top button-pink">
+                    Comenzar<ion-icon slot="end" name="arrow-forward">
+                    </ion-icon>
+                </ion-button>
+            </ion-col>
+            <ion-col size="12" size-sm>
+                <p class="subtitle ion-text-center">
+                    ¿Ya tienes una cuenta? <a href="javascript:;" (click)="navigateTo('/signin')" class="a-pink">Ingresá</a>
+                </p>
+            </ion-col>
+            
+        </ion-row>
+    </ion-grid>
+</ion-content>

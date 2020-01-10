@@ -1,0 +1,76 @@
+<ion-content class="ion-padding" fullscreen="true">
+
+
+    <ion-grid>
+        <ion-row>
+
+            <ion-col class="ion-text-center" size="12">
+                <img class="logo-center" src="assets/logo.png" alt="De Fiesta Logo">
+                <h2 class="text-bold">{{ pageData.title }}</h2>
+                <p class="subtitle"> {{ pageData.subtitle }} </p>
+            </ion-col>
+
+
+            <ion-col size="12">
+                <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+
+
+                    <ion-item lines="none" class="margin-bottom" [ngClass]="{
+                        'invalid-form': f.email.invalid && this.submited
+                    }">
+                    
+
+                        <ion-label position="floating">Correo</ion-label>
+                        <ion-input type="email" formControlName="email" required></ion-input>
+                    </ion-item>
+
+                    <ion-item lines="none" [ngClass]="{
+                        'invalid-form': f.password.invalid && this.submited
+                    }">
+
+                        <ion-label position="floating">Contraseña</ion-label>
+                        <ion-input [type]="passwordType" formControlName="password" required></ion-input>
+                        <ion-icon [name]="passwordIco" slot="end" class="passwordIcon" (click)="hideShowPassword()">
+                        </ion-icon>
+                    </ion-item>
+
+                    <div class="ion-text-right ion-margin-bottom">
+                        <small><a href="">¿Olvidaste tu contraseña?</a></small>
+                    </div>
+                    <ion-button type="submit" size="large" expand="block" class="button-pink ion-margin-top">Entrar
+                    </ion-button>
+
+
+                </form>
+            </ion-col>
+
+
+            <ion-col size="12">
+                <div class="ion-text-center">
+                    <ion-grid>
+                        <ion-row>
+
+                            <ion-col size="12">
+                                <p class="subtitle ion-no-margin">¿No tienes una cuenta? <a routerLink="/signup"
+                                        class="a-pink">Registrate</a></p>
+                                <p class="subtitle ion-margin-top">O ingresá con</p>
+                            </ion-col>
+
+                            <ion-col size="12">
+                                <!-- Social Login -->
+                                <app-sociallogin></app-sociallogin>
+                            </ion-col>
+
+                        </ion-row>
+                    </ion-grid>
+                </div>
+            </ion-col>
+
+
+
+
+        </ion-row>
+    </ion-grid>
+
+
+</ion-content>

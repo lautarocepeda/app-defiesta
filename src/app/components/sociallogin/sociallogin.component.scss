@@ -1,0 +1,37 @@
+
+ion-fab-button {
+    --box-shadow: none;
+}
+
+/* Social Buttons */
+.btn-facebook, .btn-instagram, .btn-google {
+    --color: white;
+    box-shadow: none;
+}
+
+.btn-facebook {
+    --background: #3C5897;
+    --background-hover: #556cc5;
+    --background-activated: #556cc5;
+}
+
+.btn-instagram {
+    --background: #3F729B;
+    --background-hover: #3f869b;
+    --background-activated: rgb(63, 134, 155);
+}
+
+.btn-google {
+    --background: #DF4A36;
+    --background-hover: #f85b46;
+    --background-activated: #f85b46;
+}
+/* End Social Buttons */
+
+.ion-margin-start {
+    margin-left: 30px;
+}
+
+.ion-margin-end {
+    margin-right: 30px;
+}

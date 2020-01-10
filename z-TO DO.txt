@@ -1,0 +1,51 @@
+
+Editar CSS - Welcome Component
+{
+    Usar 1 sola pagina responsive para cualquier telefono -sin scroll-
+}
+
+
+Fullscreen Splash Screen 
+{
+    TRY 1 => manifest android => android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
+    TRY 2 => 
+    
+    Fortunately, starting with cordova@6.4.0 you can use <edit-config> in config.xml too:
+
+    <?xml version='1.0' encoding='utf-8'?>
+    <widget ... xmlns:android="http://schemas.android.com/apk/res/android">
+        ...
+        <edit-config file="AndroidManifest.xml" mode="merge"
+                    target="/manifest/application/activity">
+            <activity android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        </edit-config>
+        ...
+    </widget>
+    __________________________________________________________________________________________________
+
+    Did you add xmlns:android="http://schemas.android.com/apk/res/android" to your <widget>? 
+
+    ____________________________________________________________________________________________________
+}
+
+
+
+* Verificar correctamente el authGuard.
+* Eliminar linea header HomeComponent
+
+
+
+
+
+
+
+
+____________________________________________________________________________________________________
+
+UI
+    https://assets.materialup.com/uploads/f3b434e9-aa12-4f76-9b2f-ba6fb2e78def/preview.png
+
+Tutorial
+    https://www.9lessons.info/2019/08/ionic-5-angular-8-welcome-page.html
+
+____________________________________________________________________________________________________
