@@ -1,0 +1,16 @@
+<ion-header no-border class="ion-margin-top">
+    <div class="logo-center">
+        <img class="avatar" src="assets/avatar_test.jpg" alt="Profile User Image">
+        <div class="avatar-title ion-margin-top">Lautaro</div>
+    </div>
+</ion-header>
+
+
+<ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+    <ion-item lines="none" [routerDirection]="'root'" [routerLink]="[p.url]" (click)="p.action ? p.action() : null">
+        <ion-icon slot="start" [name]="p.icon" color="primary"></ion-icon>
+        <ion-label>
+            {{ p.title }}
+        </ion-label>
+    </ion-item>
+</ion-menu-toggle>

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { AuthService } from './services/auth.service';
 
 
 @Component({
@@ -13,38 +12,11 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
 
-    public appPages = [
-        {
-            title: 'Home',
-            url: '/home',
-            icon: 'home',
-            action: () => { }
-        },
-        {
-            title: 'Sign In',
-            url: '/signin',
-            icon: 'log-in',
-            action: () => { }
-        },
-        {
-            title: 'Sign Up',
-            url: '/signup',
-            icon: 'list',
-            action: () => { }
-        },
-        {
-            title: 'LogOut',
-            url: '',
-            icon: 'log-out',
-            action: () => { this.authService.logout(); }
-        }
-    ];
-
     constructor(
         private platform: Platform,
         private splashScreen: SplashScreen,
         private statusBar: StatusBar,
-        private authService: AuthService
+        public menuCtrl: MenuController
 
     ) {
         // status bar white
@@ -59,7 +31,10 @@ export class AppComponent {
         this.platform.ready().then(() => {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
+            this.menuCtrl.enable(true, 'authMenu');
+            this.menuCtrl.open('authMenu');
         });
+        
     }
 
 }

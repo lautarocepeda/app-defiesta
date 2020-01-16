@@ -1,0 +1,23 @@
+.avatar {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 40px;
+}
+
+.avatar-title {
+    color: #7a7676;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+ion-header {
+    margin-bottom: 3.7em;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
