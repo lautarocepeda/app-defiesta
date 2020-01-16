@@ -74,7 +74,7 @@ export class SigninPage implements OnInit {
             (res: any) => {
 
                 if (res.success) {
-                    this.storageService.store(AuthConstants.AUTH, this.signin).then(res => {
+                    this.storageService.store(AuthConstants.AUTH, res).then(data => {
                         this.router.navigate(['/home']);
     
                         this.toastService.presentToast("Log In!");

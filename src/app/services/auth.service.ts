@@ -25,6 +25,7 @@ export class AuthService {
         this.storageService.get(AuthConstants.AUTH).then(data => {
             this.userData$.next(data);
         });
+
     }
 
 

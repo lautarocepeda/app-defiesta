@@ -26,6 +26,9 @@ import { UserDataResolver } from '../resolvers/user-data.resolver';
             }
         ])
     ],
-    declarations: [HomePage]
+    declarations: [HomePage],
+    providers: [
+        UserDataResolver
+      ]
 })
 export class HomePageModule { }
