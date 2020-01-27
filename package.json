@@ -21,6 +21,7 @@
     "@angular/router": "~8.1.2",
     "@ionic-native/android-full-screen": "^5.17.1",
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/facebook": "^5.19.1",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.17.1",
     "@ionic/angular": "^4.7.1",
@@ -28,6 +29,7 @@
     "cordova-android": "^8.1.0",
     "cordova-browser": "^6.0.0",
     "cordova-ios": "^5.1.1",
+    "cordova-plugin-facebook4": "^6.2.0",
     "cordova-plugin-fullscreen": "^1.2.0",
     "cordova-sqlite-storage": "^4.0.0",
     "core-js": "^2.5.4",
@@ -79,7 +81,13 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-fullscreen": {},
-      "cordova-sqlite-storage": {}
+      "cordova-sqlite-storage": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "797125827435677",
+        "APP_NAME": "De Fiesta App",
+        "FACEBOOK_HYBRID_APP_EVENTS": "false",
+        "FACEBOOK_ANDROID_SDK_VERSION": "5.5.2"
+      }
     },
     "platforms": [
       "browser",

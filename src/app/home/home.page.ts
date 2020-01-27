@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
 
 
     ngOnInit() {
-        this.data = this.actRoute.snapshot.data; //TODO obtener correctamente la informacion de usuario para usarlo en ActivatedRoute
+        this.data = this.actRoute.snapshot.data;
         console.log('Home Component - Data User', this.data);
     }
 

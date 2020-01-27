@@ -16,6 +16,9 @@ import { AndroidFullScreen } from '@ionic-native/android-full-screen/ngx';
 import { AppComponent } from './app.component';
 import { AuthSidemenuComponent } from './components/auth-sidemenu/auth-sidemenu.component';
 
+// Facebook Login
+import { Facebook } from '@ionic-native/facebook/ngx';
+
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -40,6 +43,7 @@ import { AppRoutingModule } from './app-routing.module';
         StatusBar,
         SplashScreen,
         AndroidFullScreen,
+        Facebook,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
     ],
     bootstrap: [AppComponent]
