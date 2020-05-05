@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AuthSidemenuComponent implements OnInit {
 
+    userData: Object = {};
+
     public appPages = [
         {
             title: 'Inicio',
@@ -41,6 +43,20 @@ export class AuthSidemenuComponent implements OnInit {
     constructor(private authService: AuthService) {
     }
 
-    ngOnInit() { }
+
+
+    getUserData() {
+        this.authService.isLoggedIn().then(data => {
+            this.userData = data;
+        }).catch( err => {
+            console.log(err); // not found user logging
+        });
+    }
+
+
+    ngOnInit() {
+    }
+
+    
 
 }

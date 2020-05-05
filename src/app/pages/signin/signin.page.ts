@@ -51,7 +51,7 @@ export class SigninPage implements OnInit {
     }
 
 
-
+    // easy access controls form
     get f() { return this.signinForm.controls }
 
 

@@ -16,7 +16,7 @@ export class AppComponent {
         private platform: Platform,
         private splashScreen: SplashScreen,
         private statusBar: StatusBar,
-        public menuCtrl: MenuController
+        private menuController: MenuController
 
     ) {
         // status bar white
@@ -31,8 +31,9 @@ export class AppComponent {
         this.platform.ready().then(() => {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
-            this.menuCtrl.enable(true, 'authMenu');
-            this.menuCtrl.open('authMenu');
+
+            // disable authentication side-menu
+            this.menuController.enable(true, 'authMenu');
         });
         
     }

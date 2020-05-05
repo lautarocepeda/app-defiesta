@@ -20,8 +20,7 @@ export class WelcomePage implements OnInit {
 
 
     constructor(
-        private router: Router,
-        private menuController: MenuController
+        private router: Router
     ) {
 
         btoa('Hello');
@@ -33,10 +32,6 @@ export class WelcomePage implements OnInit {
         // *bug* Page blured
         //
         // this.goToFullScreen();
-
-
-        //disabled side-menu
-        this.menuController.enable(true);
         
     }
     

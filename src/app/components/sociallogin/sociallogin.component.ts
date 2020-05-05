@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
+import { AuthService } from 'src/app/services/auth.service';
+import { StorageService } from 'src/app/services/storage.service';
+import { AuthConstants } from 'src/app/services/auth-constant';
+import { ToastService } from 'src/app/services/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-sociallogin',
@@ -9,10 +14,17 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 })
 export class SocialloginComponent implements OnInit {
 
-    constructor(public alertController: AlertController, private facebook: Facebook) { }
+    constructor(
+        private router: Router,
+        public alertController: AlertController,
+        private facebook: Facebook,
+        private authService: AuthService,
+        private storageService: StorageService,
+        private toastService: ToastService
+    ) { }
 
 
-    //TODO agregar authprovider y auth_oui a la base de datos, para agregar los social login.
+
     async facebookLogin() {
         try {
             const fbResponse: FacebookLoginResponse = await this.facebook.login(['public_profile', 'email']);
@@ -20,15 +32,34 @@ export class SocialloginComponent implements OnInit {
                 id: fbResponse.authResponse.userID,
                 access_token: fbResponse.authResponse.accessToken
             };
-    
-            
-            const userData = await this.facebook.api('me?fields=id,name,email,picture.width(720).height(720).as(picture)', ['public_profile']);
-            console.log(userData);    
 
-        } catch(err) {
-            console.error('[Login Facebook]', err);
+            console.log(fbAuthData);
+
+
+            this.authService.authFacebook(fbAuthData).subscribe(
+                (res: any) => {
+
+                    if (res.success) {
+                        this.storageService.store(AuthConstants.AUTH, res).then(data => {
+                            this.router.navigate(['/home']);
+
+                            this.toastService.presentToast("Log In Facebook!");
+                        }).catch(err => {
+                            console.log('Sign In FACEBOOK Error => ', err);
+                        });
+                    } else if (res.error) {
+                        this.toastService.presentToast(res.error);
+                    }
+
+                }, (err) => {
+                    const error = err.error.error;
+                    this.toastService.presentToast(error);
+                }
+            );
+
+        } catch (err) {
+            console.error('[Login Facebook Error]', err);
         }
-
     }
 
 
@@ -40,7 +71,7 @@ export class SocialloginComponent implements OnInit {
             buttons: ['OK']
         });
 
-        await this.facebook.logout().then( res => {
+        await this.facebook.logout().then(res => {
             alert.present();
         })
     }

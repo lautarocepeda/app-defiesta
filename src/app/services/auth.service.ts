@@ -4,6 +4,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpService } from './http.service';
 import { StorageService } from './storage.service';
 import { AuthConstants } from './auth-constant';
+import { Facebook } from '@ionic-native/facebook/ngx';
 
 @Injectable({
     providedIn: 'root'
@@ -11,22 +12,12 @@ import { AuthConstants } from './auth-constant';
 export class AuthService {
 
 
-    userData$ = new BehaviorSubject<any>([]);
-
     constructor(
         private httpService: HttpService,
         private router: Router,
-        private storageService: StorageService
+        private storageService: StorageService,
+        private facebook: Facebook
     ) { }
-
-
-
-    getUserData() {
-        this.storageService.get(AuthConstants.AUTH).then(data => {
-            this.userData$.next(data);
-        });
-
-    }
 
 
 
@@ -40,11 +31,25 @@ export class AuthService {
     }
 
 
+    // signUp / signIn - Facebook
+    authFacebook(fbAuthData: any): Observable<any> {
+        return this.httpService.post('v1/auth/facebook', fbAuthData);
+    }
+
+
     logout() {
         // delete token session
         this.storageService.remove(AuthConstants.AUTH).then(res => {
             this.router.navigate(['/signin']);
+        });
+
+        // logout facebook session
+        this.facebook.logout().then(data => {
+            console.log('LogOut Facebook', data);
+        }).catch(error => {
+            console.log('[Error LogOut Facebook', error);
         })
+
     }
 
 

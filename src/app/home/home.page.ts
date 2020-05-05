@@ -12,9 +12,7 @@ export class HomePage implements OnInit {
 
     data: any;
 
-    constructor(private menuController: MenuController, private actRoute: ActivatedRoute) {
-        this.menuController.enable(true);
-
+    constructor(private actRoute: ActivatedRoute) {
     }
 
 
